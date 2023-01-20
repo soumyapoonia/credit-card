@@ -14,3 +14,8 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import classification_report
 data = pd.read_csv('application_record.csv')
 values = pd.read_csv('credit_record.csv')
+
+data = data.drop(columns=['FLAG_MOBIL'])
+data.nunique()
+
+
