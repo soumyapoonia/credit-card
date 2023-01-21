@@ -1,26 +1,18 @@
 import numpy as np
 import pandas as pd
-import math
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split 
-from sklearn.metrics import recall_score
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
-from sklearn.model_selection import cross_val_score 
-import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set()
-from sklearn.metrics import roc_curve, auc
-from sklearn.metrics import classification_report
+import seaborn as sns
 data = pd.read_csv('application_record.csv')
 values = pd.read_csv('credit_record.csv')
+data.info()
+values.info()
 
-data = data.drop(columns=['FLAG_MOBIL'])
-data.nunique()
+data['ID'].nunique()
+values['ID'].nunique() 
+len(set(values['ID']).intersection(set(data['ID'])))
+data.isnull().sum()
+values.isnull().sum() 
 
-data['CODE_GENDER'].replace(['F','M'], [0,1],inplace=True)
-data['FLAG_OWN_CAR'].replace(['Y','N'], [1,0],inplace=True)
-data['FLAG_OWN_REALTY'].replace(['Y','N'], [1,0],inplace=True)
-data = pd.get_dummies(data)
+
 
 
