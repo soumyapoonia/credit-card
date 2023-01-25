@@ -12,6 +12,11 @@ values['ID'].nunique()
 len(set(values['ID']).intersection(set(data['ID'])))
 data.isnull().sum()
 values.isnull().sum() 
+data = data.drop_duplicates('ID', keep='last') 
+data.drop('OCCUPATION_TYPE', axis=1, inplace=True) 
+ot = pd.DataFrame(data.dtypes =='object').reset_index()
+object_type = ot[ot[0] == True]['index']
+object_type
 
 
 
