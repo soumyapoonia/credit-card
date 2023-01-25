@@ -17,6 +17,17 @@ data.drop('OCCUPATION_TYPE', axis=1, inplace=True)
 ot = pd.DataFrame(data.dtypes =='object').reset_index()
 object_type = ot[ot[0] == True]['index']
 object_type
+num_type = pd.DataFrame(data.dtypes != 'object').reset_index().rename(columns =  {0:'yes/no'})
+num_type = num_type[num_type['yes/no'] ==True]['index']
+a = data[object_type]['CODE_GENDER'].value_counts()
+b = data[object_type]['FLAG_OWN_CAR'].value_counts()
+c = data[object_type]['FLAG_OWN_REALTY'].value_counts()
+d = data[object_type]['NAME_INCOME_TYPE'].value_counts()
+e = data[object_type]['NAME_EDUCATION_TYPE'].value_counts()
+f = data[object_type]['NAME_FAMILY_STATUS'].value_counts()
+g = data[object_type]['NAME_HOUSING_TYPE'].value_counts()
+
+print( a,"\n\n",b,'\n\n', c, '\n\n', d, '\n\n', e, '\n\n', f, '\n\n', g)
 
 
 
