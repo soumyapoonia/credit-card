@@ -29,6 +29,12 @@ g = data[object_type]['NAME_HOUSING_TYPE'].value_counts()
 
 print( a,"\n\n",b,'\n\n', c, '\n\n', d, '\n\n', e, '\n\n', f, '\n\n', g)
 
+data.head()
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+for x in data:
+    if data[x].dtypes=='object':
+        data[x] = le.fit_transform(data[x])
 
 
 
